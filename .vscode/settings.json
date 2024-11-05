@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "dotnet",
+        "myfinance"
+    ],
+    "dotnet.server.useOmnisharp": true,
+    "cSpell.ignoreWords": [
+        "Transacao"
+    ]
+}
