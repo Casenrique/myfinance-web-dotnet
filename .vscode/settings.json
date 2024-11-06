@@ -5,6 +5,8 @@
     ],
     "dotnet.server.useOmnisharp": true,
     "cSpell.ignoreWords": [
-        "Transacao"
+        "Historico",
+        "Transacao",
+        "Transacoes"
     ]
 }
