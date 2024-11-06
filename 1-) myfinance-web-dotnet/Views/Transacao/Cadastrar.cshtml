@@ -1,24 +1,29 @@
-@model myfinance_web_dotnet.Models.PlanoContaModel
+@model myfinance_web_dotnet.Models.TransacaoModel
 
 @{
-    ViewData["Title"] = "Criar Plano de Contas";
+    ViewData["Title"] = "Registrar Transação Financeira";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div>
-    <form asp-controller="PlanoConta" asp-action="Cadastrar" method="post">
-        <div class="mb-3">
-            <input type="hidden" asp-for="Id" />
+    <form asp-controller="Transacao" asp-action="Cadastrar" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group mb-3">
+            <label class="d-block p-2">Data:</label>
+            <input type="date" class="form-control" asp-for="Data" />
         </div>
-        <div class="mb-3 p-2">
-            <label class="d-block mb-3">Descrição:</label>
-            <input type="text" asp-for="Descricao" />
+        <div class="form-group mb-3">
+            <label class="d-block p-2">Valor:</label>
+            <input type="text" class="form-control" asp-for="Valor" step="0.01" />
         </div>
-        <div class="mb-3">
-            <label class="d-block p-2">Tipo:</label>
-            <label class="d-inline p-2">@Html.RadioButtonFor(m => m.Tipo, "D")Despesa</label>
-            <label class="d-inline p-2">@Html.RadioButtonFor(m => m.Tipo, "R")Receita</label>
+        <div class="form-group mb-3">
+            <label class="d-block p-2">Plano de Conta:</label>
+            @Html.DropDownListFor(m => m.PlanoContaId, Model.ListaPlanoContas, new { @class = "form-select" })
+        </div>
+        <div class="form-group mb-3">
+            <label class="d-block p-2">Histórico:</label>
+            <input type="text" class="form-control" asp-for="Historico" />
         </div>
         <button type="submit" class="btn btn-block btn-success mb-3">Registrar</button>
     </form>
