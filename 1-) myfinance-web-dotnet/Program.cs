@@ -3,6 +3,8 @@ using myfinance_web_dotnet_service;
 using myfinance_web_dotnet_service.Interfaces;
 using Microsoft.Extensions.Configuration; // Certifique-se de incluir isso
 using Microsoft.EntityFrameworkCore;
+using myfinance_web_dotnet_infra.Interfaces;
+using myfinance_web_dotnet_infra.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ builder.Services.AddDbContext<MyFinanceDbContext>(options =>
 // Registra os serviços
 builder.Services.AddScoped<IPlanoContaService, PlanoContaService>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
+
+// Repositórios
+builder.Services.AddScoped<IPlanoContaRepository, PlanoContaRepository>();
+
 
 var app = builder.Build();
 
